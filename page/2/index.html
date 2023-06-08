@@ -22,26 +22,26 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2023/06/index.html">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/archives/2023/06/">
+<link rel="canonical" href="http://example.com/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | Hexo</title>
+  <title>Hexo</title>
   
 
 
@@ -139,233 +139,149 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/06/c-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA/">
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 12 posts in total. Keep on posting.</span>
-      </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/06/c-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA/" class="post-title-link" itemprop="url">c++内存分区</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-06-06 23:24:29 / Modified: 23:24:44" itemprop="dateCreated datePublished" datetime="2023-06-06T23:24:29+08:00">2023-06-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+          <h1 id="内存分区"><a href="#内存分区" class="headerlink" title="内存分区"></a>内存分区</h1><p>C++程序在执行时，将内存大方向划分为<strong>4个区域</strong></p>
+<ul>
+<li><strong>代码区</strong>：存放函数体的二进制代码，由操作系统进行管理的</li>
+<li><strong>全局区</strong>：存放&#x3D;&#x3D;全局变量&#x3D;&#x3D;和&#x3D;&#x3D;静态变量(static)&#x3D;&#x3D;以及&#x3D;&#x3D;全局常量(const)&#x3D;&#x3D;</li>
+<li><strong>栈区</strong>：由编译器自动分配释放, 存放&#x3D;&#x3D;函数的参数值&#x3D;&#x3D;,&#x3D;&#x3D;局部变量&#x3D;&#x3D;等</li>
+<li><strong>堆区</strong>：由程序员分配和释放,若程序员不释放,程序结束时由操作系统回收</li>
+</ul>
+<blockquote>
+<p>不同区域存放的数据，赋予<strong>不同的生命周期</strong>, 给我们更大的灵活编程</p>
+</blockquote>
+<h2 id="程序执行前"><a href="#程序执行前" class="headerlink" title="程序执行前"></a>程序执行前</h2><h3 id="代码区"><a href="#代码区" class="headerlink" title="代码区"></a>代码区</h3><p>存放 CPU 执行的机器指令</p>
+<ul>
+<li><p>代码区是<strong>共享</strong>的，共享的目的是对于频繁被执行的程序，只需要在内存中有一份代码即可</p>
+</li>
+<li><p>代码区是<strong>只读</strong>的，使其只读的原因是防止程序意外地修改了它的指令</p>
+</li>
+</ul>
+<h3 id="全局区"><a href="#全局区" class="headerlink" title="全局区"></a>全局区</h3><p>存放&#x3D;&#x3D;全局变量&#x3D;&#x3D;和&#x3D;&#x3D;静态变量(static)&#x3D;&#x3D;以及&#x3D;&#x3D;全局常量(const)&#x3D;&#x3D;</p>
+<blockquote>
+<p>该区域的数据在<strong>程序结束后</strong>由操作系统释放</p>
+</blockquote>
+
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-06-08T18:47:03+08:00"
-              content="2023-06-08">
-          06-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/06/08/%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F-%E5%B8%B8%E9%87%8F%E6%8C%87%E9%92%88-%E6%8C%87%E5%90%91%E5%B8%B8%E9%87%8F%E7%9A%84%E5%B8%B8%E6%8C%87%E9%92%88/" itemprop="url">
-            <span itemprop="name">指针常量_常量指针_指向常量的常指针</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
+  
+  
+  
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/06/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%BB%A5%E5%8F%8A%E5%90%8E%E7%BB%AD%E6%93%8D%E4%BD%9C/">
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-06-08T16:32:32+08:00"
-              content="2023-06-08">
-          06-08
-        </time>
-      </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/06/08/c-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%90%8E-malloc/" itemprop="url">
-            <span itemprop="name">c++内存分区_程序执行后_malloc</span>
-          </a>
-      </div>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/06/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%BB%A5%E5%8F%8A%E5%90%8E%E7%BB%AD%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">如何搭建hexo博客以及后续操作</a>
+        </h2>
 
-    </header>
-  </article>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+              <time title="Created: 2023-06-06 20:13:16 / Modified: 20:14:32" itemprop="dateCreated datePublished" datetime="2023-06-06T20:13:16+08:00">2023-06-06</time>
+            </span>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-06-08T12:47:23+08:00"
-              content="2023-06-08">
-          06-08
-        </time>
-      </div>
+          
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/06/08/test/" itemprop="url">
-            <span itemprop="name">test</span>
-          </a>
-      </div>
+        </div>
+      </header>
 
-    </header>
-  </article>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-06-08T12:02:58+08:00"
-              content="2023-06-08">
-          06-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/06/08/test/c-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%89%8D/" itemprop="url">
-            <span itemprop="name">c++内存分区_程序执行前</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-06-08T11:05:34+08:00"
-              content="2023-06-08">
-          06-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/06/08/%E9%9D%99%E6%80%81%E6%88%90%E5%91%98/" itemprop="url">
-            <span itemprop="name">静态成员</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-06-07T23:08:49+08:00"
-              content="2023-06-07">
-          06-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/06/07/%E6%8C%87%E9%92%88%E5%87%BD%E6%95%B0%E4%B8%8E%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/" itemprop="url">
-            <span itemprop="name">指针函数与函数指针</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-06-07T21:02:58+08:00"
-              content="2023-06-07">
-          06-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/06/07/c-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%89%8D/" itemprop="url">
-            <span itemprop="name">c++内存分区_程序执行前</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-06-07T21:02:12+08:00"
-              content="2023-06-07">
-          06-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/06/07/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" itemprop="url">
-            <span itemprop="name">Untitled</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-06-07T17:23:03+08:00"
-              content="2023-06-07">
-          06-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/06/07/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-06-07T16:43:01+08:00"
-              content="2023-06-07">
-          06-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/06/07/css%E8%AF%AD%E6%B3%95/" itemprop="url">
-            <span itemprop="name">css语法</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+          
+      
     </div>
-  </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
   
   
+
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2023/06/page/2/">2</a><a class="extend next" rel="next" href="/archives/2023/06/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 
